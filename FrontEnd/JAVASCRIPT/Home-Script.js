@@ -140,7 +140,7 @@ function openEventListModal(events) {
     div.innerHTML = `
       <span><strong>${evento.title}</strong> - ${evento.date.split('T')[0]} - ${evento.location}</span>
       <div class="event-actions">
-        <button class="delete-btn" onclick="deleteEvent('${evento._id}')">Excluir</button>
+        <button class="delete-btn" onclick="deleteEvent('${evento.id}')">Excluir</button>
       </div>
     `;
     container.appendChild(div);
@@ -155,13 +155,15 @@ function closeEventListModal() {
 
 function deleteEvent(id) {
   if (confirm("Deseja realmente excluir este evento?")) {
-      axios.delete(`http://localhost:3000/api/events/delete`,
+    console.log(id)
+      axios.delete(`http://localhost:3000/api/events/delete/${id}`,
         { withCredentials: true })
       .then(response => {
         console.log('Evento deletado:', response.data);
         getEvents(); 
       })
       .catch(error => {
+        
         console.error('Erro ao deletar evento:', error);
       });
     

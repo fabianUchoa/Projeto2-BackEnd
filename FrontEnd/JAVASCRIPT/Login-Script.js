@@ -59,15 +59,18 @@ userForm.onsubmit = function (e) {
         return;
     }
 
-
+    
     axios.post('http://localhost:3000/api/new-user',{
         name: name,
         email: email,
         password: password 
-    },{ withCredentials: true })
+    },
+    { 
+      withCredentials: true 
+    })
       .then(response => {
         console.log('Usuário cadastrado:', response.data);
-        window.location.href = "../HTML/Home-Page.html";
+        window.location.href = "../HTML/Login-Screen.html";
         window.sessionStorage.setItem('user', JSON.stringify(response.data));
       })
       .catch(error => {

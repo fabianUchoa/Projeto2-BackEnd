@@ -18,6 +18,10 @@ exports.login = async (req, res) => {
   }
 };
 
+function saveCreatedUser(userId){
+  req.session.userId = userId;
+}
+
 exports.logout = (req, res) => {
   req.session.destroy(() => {
     res.clearCookie('connect.sid');

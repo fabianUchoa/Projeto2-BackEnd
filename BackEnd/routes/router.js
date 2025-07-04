@@ -15,7 +15,7 @@ router.put('/updateUser/:id', auth.ensureAuth, user.updateUser);
 
 router.get('/user/events', auth.ensureAuth, event.listEvents);
 router.post('/new-event', auth.ensureAuth, event.createEvent);
-router.delete('/events/delete', auth.ensureAuth, event.deleteEvent);
+router.delete('/events/delete/:id', auth.ensureAuth, event.deleteEvent);
 
 router.get('/listLogs', auth.ensureAuth, log.listLogs);
 router.post('/logs', auth.ensureAuth, log.createLog);

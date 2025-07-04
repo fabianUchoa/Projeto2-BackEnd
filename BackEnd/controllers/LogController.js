@@ -3,6 +3,7 @@ const { Log, User } = require('../models');
 exports.createLog = async (req, res) => {
   try {
     const data = req.body;
+    
     const log = await Log.create(data);
     res.status(201).json(log);
   } catch (err) {

@@ -4,7 +4,7 @@ const sequelize = require('../config/db');
 const Log = sequelize.define('Log', {
   userId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
     references: {
       model: 'users',
       key: 'id'

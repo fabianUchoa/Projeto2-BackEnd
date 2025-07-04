@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const { User, Log } = require('../models');
+const auth = require('../controllers/AuthController');
 
 exports.listUsers = async (req, res) => {
   try {

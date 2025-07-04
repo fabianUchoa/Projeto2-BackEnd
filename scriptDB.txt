@@ -1,0 +1,6 @@
+CREATE DATABASE "agendaDB";
+
+O código faz a modelagem das tabelas e foreign keys automatico, porém é preciso baixar as extensões:
+
+npm install sequelize pg pg-hstore
+
