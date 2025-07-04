@@ -1,0 +1,97 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>DatE</title>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="../STYLE/Home-Page.css">
+  <link rel="shortcut icon" href="../IMAGES/LOGIN-PAGE-IMAGES/DatE-icon.png" type="image/x-icon">
+</head>
+<body>
+  <div class="container">
+    
+    <aside class="sidebar">
+      <h2>Menu</h2>
+      <ul>
+        <li><a href="#" id="eventosCadastrados">Eventos Cadastrados</a></li>
+        <li><a href="#" id="logsRegistradas">Logs do sistema</a></li>
+        <li><a href="#" id="editarUsuario" onclick="openEditUserModal()">Editar Usuário</a></li>
+        <li><a href="#" id="logout" onclick="logout()">Sair</a></li>
+      </ul>
+    </aside>
+
+    
+    <main class="calendar-container">
+      <div class="calendar-header">
+        <button id="prevMonth">&lt;</button>
+        <h1 id="monthYear">Mês Ano</h1>
+        <button id="nextMonth">&gt;</button>
+      </div>
+
+      <div class="calendar">
+        
+        <div class="day-name">Dom</div>
+        <div class="day-name">Seg</div>
+        <div class="day-name">Ter</div>
+        <div class="day-name">Qua</div>
+        <div class="day-name">Qui</div>
+        <div class="day-name">Sex</div>
+        <div class="day-name">Sáb</div>
+
+     
+        <div id="calendarDays" class="days-grid"></div>
+      </div>
+    </main>
+  </div>
+
+<div id="eventModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Adicionar Evento</h2>
+    <form id="eventForm">
+      <label>Data:</label>
+      <input type="text" id="eventDate" readonly>
+
+      <label>Nome do Evento:</label>
+      <input type="text" id="eventName">
+
+      <label>Descrição:</label>
+      <textarea id="eventDescription" rows="3"></textarea>
+
+      <label>Localização:</label>
+      <input type="text" id="eventLocation">
+
+      <button type="submit">Salvar Evento</button>
+    </form>
+  </div>
+</div>
+
+<div id="eventListModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeEventListModal()">&times;</span>
+    <h2 id="contentTitle">Eventos Cadastrados</h2>
+    <div id="eventListContainer"></div>
+  </div>
+</div>
+
+<div id="editUserModal" class="modal">
+  <div class="modal-content">
+    <span class="close" id="closeEditUserModal">&times;</span>
+    <h2>Editar Usuário</h2>
+    <form id="editUserForm">
+      <label for="editName">Nome</label>
+      <input type="text" id="editName" name="name" required />
+
+      <label for="editEmail">Email</label>
+      <input type="email" id="editEmail" name="email" required />
+
+      <label for="editPassword">Senha</label>
+      <input type="password" id="editPassword" name="password" />
+
+      <button type="submit">Salvar Alterações</button>
+    </form>
+  </div>
+</div>
+
+  <script src="../JAVASCRIPT/Home-Script.js"></script>
+</body>
+</html>
